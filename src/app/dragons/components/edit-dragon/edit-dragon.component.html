@@ -1,0 +1,38 @@
+<div class="card">
+    <div class="card__content">
+        <form [formGroup]="editDragonForm" (ngSubmit)="submitEditDragon()">
+            <label for="name">Put Dragon Name</label>
+            <div class="form-imput">
+                <input type="text" name="name" placeholder="Dragon Name" formControlName="name"
+                [ngClass]="{ 'error': isSubmitted && editDragonForm.controls.name.errors }" />
+                <div class="input-error">
+                    <span *ngIf="isSubmitted && editDragonForm.controls.name.errors">
+                        Required Field
+                    </span>
+                </div>
+            </div>
+
+            <label for="type">Put Dragon Type</label>
+            <div class="form-imput">
+                <input type="text" name="type" placeholder="Dragon Type" formControlName="type"
+                [ngClass]="{ 'error': isSubmitted && editDragonForm.controls.type.errors }" />
+                <div class="input-error">
+                    <span *ngIf="isSubmitted && editDragonForm.controls.type.errors">
+                        Required Field
+                    </span>
+                </div>
+            </div>
+
+
+            <div class="login-component__box__login-Form__text">
+                <span *ngIf="!!editDragonErrorMessage" class="login-component__box__login-Form__text--error">
+                    {{[editDragonErrorMessage]}}
+                </span>
+            </div>
+
+            <div class="centered">
+                <button type="submit" class="button primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div class="login-component">
+
+    <div class="login-component__box">
+        <div class="login-component__box__header">
+            <h1>Login</h1>
+        </div>
+
+        <div class="login-component__box__form">
+            <form [formGroup]="formLogin" (ngSubmit)="login()">
+                <label for="userName">Put Your User</label>
+                <div class="form-imput">
+                    <input type="text" name="userName" placeholder="User" formControlName="userName"
+                    [ngClass]="{ 'error': isSubmitted && formLogin.controls.userName.errors }" />
+                    <div class="input-error">
+                        <span *ngIf="isSubmitted && formLogin.controls.userName.errors">
+                            Required filed
+                        </span>
+                    </div>
+                </div>
+
+                <label for="password">Put You Password</label>
+                <div class="form-imput">
+                    <input type="password" name="password" placeholder="Password" formControlName="password"
+                    [ngClass]="{ 'error': isSubmitted && formLogin.controls.password.errors }" />
+                    <div class="input-error">
+                        <span *ngIf="isSubmitted && formLogin.controls.password.errors">
+                            Required filed
+                        </span>
+                    </div>
+                </div>
+
+                <div class="login-component__box__login-Form__text">
+                    <span *ngIf="!!loginErrorMessage" class="login-component__box__login-Form__text--error">
+                        {{[loginErrorMessage]}}
+                    </span>
+                </div>
+
+                <div class="centered">
+                    <button type="submit" class="button primary">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
